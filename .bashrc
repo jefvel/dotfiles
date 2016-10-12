@@ -128,9 +128,6 @@ fi
 
 export PATH=${PATH}:/home/jefvel/adt-bundle-linux/sdk/platform-tools:/home/jefvel/.composer/vendor/bin:/usr/local/bin
 
-alias pallkars='ssh pallkars.net -p 12345'
-alias notify-send="notify"
-
 # Set up ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -168,6 +165,12 @@ alias starttorrent="dtach -n /tmp/rtorrent.dtach rtorrent"
 alias colors="~/scripts/colors.sh"
 alias xclip="xclip -selection c"
 alias sleepu="sudo pm-suspend"
+alias hist="history | grep "
+alias notify-send="notify"
+
+
+alias pallkars='ssh pallkars.net -p 12345'
+alias rootpowered="ssh rootpowered.nl -p420"
 
 export QT_STYLE_OVERRIDE=gtk
 
@@ -202,7 +205,8 @@ function _git_prompt() {
 
 # Colour your prompt
 function _prompt_command() {
-    PS1='\[$RED\]\u\[$LBLUE\]:\[$GREEN\]\w \[$LBLUE\]$ \[$NOCOLOR\]'
+    #PS1='\[$RED\]\u\[$LBLUE\]:\[$GREEN\]\w \[$LBLUE\]$ \[$NOCOLOR\]'
+    PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 }
 
 export PROMPT_COMMAND=_prompt_command
